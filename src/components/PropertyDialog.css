@@ -1,0 +1,16 @@
+.PropertyDialog {
+  text-align: left;
+}
+
+.PropertyDialog .label {
+  font-weight: bold;
+}
+
+.PropertyDialog-call-to-action {
+  margin-top: 500px;
+}
+
+.PropertyDialog-property-image {
+  width: 100%;
+  height: auto;
+}
