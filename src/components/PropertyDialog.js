@@ -33,12 +33,12 @@ class PropertyDialog extends Component {
 
   onPropertyNameChange = (event) => {
     this.setState({ propertyName: event.target.value });
-    console.log(this.state.propertyName);
+    // console.log(this.state.propertyName);
   }
 
   onPropertyNotesChange = (event) => {
     this.setState({ propertyNotes: event.target.value });
-    console.log(this.state.propertyNotes);
+    // console.log(this.state.propertyNotes);
   }
 
   render() {
