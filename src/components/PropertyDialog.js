@@ -21,10 +21,24 @@ import "@material/floating-label/dist/mdc.floating-label.css";
 import "@material/notched-outline/dist/mdc.notched-outline.css";
 import "@material/line-ripple/dist/mdc.line-ripple.css";
 
-class App extends Component {
+class PropertyDialog extends Component {
   constructor(props) {
     super(props);
-    this.state = { standardDialogOpen: false };
+    this.state = { 
+      standardDialogOpen: false,
+      propertyName: '',
+      propertyNotes: '' 
+    };
+  }
+
+  onPropertyNameChange = (event) => {
+    this.setState({ propertyName: event.target.value });
+    console.log(this.state.propertyName);
+  }
+
+  onPropertyNotesChange = (event) => {
+    this.setState({ propertyNotes: event.target.value });
+    console.log(this.state.propertyNotes);
   }
 
   render() {
@@ -32,6 +46,7 @@ class App extends Component {
       <div>
         {/** Standard dialog usage */}
         <Dialog
+          className="PropertyDialog"
           open={this.state.standardDialogOpen}
           onClose={evt => {
             console.log(evt.detail.action);
@@ -44,7 +59,7 @@ class App extends Component {
         >
           <DialogTitle>Property Details</DialogTitle>
           <DialogContent>
-            <Grid className="PropertyDialog">
+            <Grid>
               <GridCell span="12">
                 <GridInner>
                   <GridCell span="5">
@@ -82,7 +97,7 @@ class App extends Component {
                   </GridCell>
                   <GridCell span="8">200 m&sup3;</GridCell>
                   <GridCell span="4" className="label">
-                    Last sale price:
+                    Last Sale:
                   </GridCell>
                   <GridCell span="8">$670,000 @ 02/04/2017</GridCell>
                   <GridCell span="4" className="label">
@@ -90,14 +105,14 @@ class App extends Component {
                   </GridCell>
                   <GridCell span="8">
                     <TextField
-                      onChange={propertyName => this.setState({ propertyName })}
+                      onChange={this.onPropertyNameChange}
                     />
                   </GridCell>
                   <GridCell span="4" className="label">
                     Area:
                   </GridCell>
                   <GridCell span="8">
-                    <TextField textarea fullwidth rows="3" />
+                    <TextField textarea fullwidth rows="3" onChange={this.onPropertyNotesChange} />
                   </GridCell>
                 </GridInner>
               </GridCell>
@@ -105,9 +120,15 @@ class App extends Component {
           </DialogContent>
           <DialogActions>
             <DialogButton action="close">Add to CRM</DialogButton>
-            <DialogButton action="accept" isDefaultAction>
-              Prepare mail
-            </DialogButton>
+            <a
+              href={`mailto:info@orbmaps.com?subject=Info for ${this.state.propertyName}&amp;body=${this.state.propertyNotes}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <DialogButton action="accept" isDefaultAction>
+                Prepare mail
+              </DialogButton>
+            </a>
           </DialogActions>
         </Dialog>
 
@@ -123,4 +144,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default PropertyDialog;
