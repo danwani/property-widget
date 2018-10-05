@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import background from "./map_background.png";
-import PropertyDialog from "./components/PropertyDialog";
+import PropertyPage from "./components/PropertyPage";
 import "./App.css";
 
 class App extends Component {
@@ -21,7 +21,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">Fun times with ReactJS</header>
         <div style={backgroundStyle}>
-          <PropertyDialog/>
+          <PropertyPage/>
         </div>
       </div>
     );

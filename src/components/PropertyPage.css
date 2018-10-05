@@ -1,0 +1,10 @@
+/* block styling */
+.property-page a {
+  text-decoration: none;
+}
+
+
+/* element specific styling */
+.property-page__call-to-action {
+  margin-top: 500px;
+}

@@ -3,21 +3,12 @@
   text-align: left;
 }
 
-.property-dialog a {
-  text-decoration: none;
-}
-
 .property-dialog .label {
   font-weight: bold;
 }
 
 /* element specific styling */
-.property-dialog__call-to-action {
-  margin-top: 500px;
-}
-
 .property-dialog__property-image {
   width: 100%;
   height: auto;
 }
-
