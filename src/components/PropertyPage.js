@@ -13,16 +13,8 @@ class PropertyPage extends Component {
     };
   }
 
-  // handleChange = {property, event} => {this.setState({property: event.target.value});
-
-  onPropertyNameChange = event => {
-    this.setState({ propertyName: event.target.value });
-    // console.log(this.state.propertyName);
-  };
-
-  onPropertyNotesChange = event => {
-    this.setState({ propertyNotes: event.target.value });
-    // console.log(this.state.propertyNotes);
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
   };
 
   onSubmitHandler = evt => this.setState({ standardDialogOpen: true });
@@ -39,8 +31,7 @@ class PropertyPage extends Component {
     return (
       <div>
         <PropertyDialog
-          onPropertyNameChange={this.onPropertyNameChange}
-          onPropertyNotesChange={this.onPropertyNotesChange}
+          handleChange={this.handleChange}
           onSubmitHandler={this.onSubmitHandler}
           closeDialog={this.closeDialog}
           state={this.state}

@@ -25,7 +25,7 @@ import "@material/notched-outline/dist/mdc.notched-outline.css";
 import "@material/line-ripple/dist/mdc.line-ripple.css";
 
 const PropertyDialog = ({
-  onPropertyNameChange,
+  handleChange,
   onPropertyNotesChange,
   onSubmitHandler,
   closeDialog,
@@ -85,7 +85,7 @@ const PropertyDialog = ({
                 Property Name:
               </GridCell>
               <GridCell span="8">
-                <TextField onChange={onPropertyNameChange} />
+                <TextField onChange={handleChange} name="propertyName" />
               </GridCell>
               <GridCell span="4" className="label">
                 Area:
@@ -95,7 +95,7 @@ const PropertyDialog = ({
                   textarea
                   fullwidth
                   rows="3"
-                  onChange={onPropertyNotesChange}
+                  onChange={handleChange} name="propertyNotes"
                 />
               </GridCell>
             </GridInner>
