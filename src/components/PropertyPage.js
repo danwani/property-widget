@@ -54,7 +54,7 @@ class PropertyPage extends Component {
         >
           <DialogTitle>Property Details</DialogTitle>
           <DialogContent>
-            <PropertyDialog onPropertyNameChange onPropertyNotesChange/>
+            <PropertyDialog onPropertyNameChange={this.onPropertyNameChange} onPropertyNotesChange={this.onPropertyNotesChange}/>
           </DialogContent>
           <DialogActions>
             <DialogButton action="close">Add to CRM</DialogButton>
