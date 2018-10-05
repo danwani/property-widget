@@ -1,3 +1,15 @@
+:root {
+  --mdc-layout-grid-margin-desktop: 10px;
+  --mdc-layout-grid-gutter-desktop: 10px;
+  --mdc-layout-grid-column-width-desktop: 72px;
+  --mdc-layout-grid-margin-tablet: 10px;
+  --mdc-layout-grid-gutter-tablet: 10px;
+  --mdc-layout-grid-column-width-tablet: 72px;
+  --mdc-layout-grid-margin-phone: 0px;
+  --mdc-layout-grid-gutter-phone: 10px;
+  --mdc-layout-grid-column-width-phone: 72px;
+}
+
 .App {
   text-align: center;
 }

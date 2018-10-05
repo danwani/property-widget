@@ -8,14 +8,15 @@ import {
   DialogActions,
   DialogButton
 } from "@rmwc/dialog";
+import { Grid } from "rmwc";
+import { GridCell } from "rmwc";
+import { GridInner } from "rmwc";
+import { TextField } from "@rmwc/textfield";
+
 import "@material/button/dist/mdc.button.css";
 import "@material/dialog/dist/mdc.dialog.css";
 import "@material/button/dist/mdc.button.css";
 import "@material/layout-grid/dist/mdc.layout-grid.css";
-import { Grid } from "rmwc";
-import { GridCell } from "rmwc";
-import { GridInner } from "rmwc";
-import { TextField, TextFieldIcon, TextFieldHelperText } from "@rmwc/textfield";
 import "@material/textfield/dist/mdc.textfield.css";
 import "@material/floating-label/dist/mdc.floating-label.css";
 import "@material/notched-outline/dist/mdc.notched-outline.css";
@@ -24,22 +25,22 @@ import "@material/line-ripple/dist/mdc.line-ripple.css";
 class PropertyDialog extends Component {
   constructor(props) {
     super(props);
-    this.state = { 
+    this.state = {
       standardDialogOpen: false,
-      propertyName: '',
-      propertyNotes: '' 
+      propertyName: "",
+      propertyNotes: ""
     };
   }
 
-  onPropertyNameChange = (event) => {
+  onPropertyNameChange = event => {
     this.setState({ propertyName: event.target.value });
     // console.log(this.state.propertyName);
-  }
+  };
 
-  onPropertyNotesChange = (event) => {
+  onPropertyNotesChange = event => {
     this.setState({ propertyNotes: event.target.value });
     // console.log(this.state.propertyNotes);
-  }
+  };
 
   render() {
     return (
@@ -69,9 +70,11 @@ class PropertyDialog extends Component {
                       src="https://www.endlesssummerresort.com.au/assets/cache/endless-summer-1120269w-2000x1000pcy.jpg"
                     />
                   </GridCell>
-                  <GridInner>
-                    <GridCell span="12 text-right">3 bed 2 bath 1 car</GridCell>
+                  <GridCell span="7">
                     <GridInner>
+                      <GridCell span="12 text-right">
+                        3 bed 2 bath 1 car
+                      </GridCell>
                       <GridCell span="4" className="label">
                         Address:
                       </GridCell>
@@ -83,7 +86,7 @@ class PropertyDialog extends Component {
                       </GridCell>
                       <GridCell span="8">L5, RP720278</GridCell>
                     </GridInner>
-                  </GridInner>
+                  </GridCell>
                 </GridInner>
               </GridCell>
               <GridCell span="12">
@@ -104,15 +107,18 @@ class PropertyDialog extends Component {
                     Property Name:
                   </GridCell>
                   <GridCell span="8">
-                    <TextField
-                      onChange={this.onPropertyNameChange}
-                    />
+                    <TextField onChange={this.onPropertyNameChange} />
                   </GridCell>
                   <GridCell span="4" className="label">
                     Area:
                   </GridCell>
                   <GridCell span="8">
-                    <TextField textarea fullwidth rows="3" onChange={this.onPropertyNotesChange} />
+                    <TextField
+                      textarea
+                      fullwidth
+                      rows="3"
+                      onChange={this.onPropertyNotesChange}
+                    />
                   </GridCell>
                 </GridInner>
               </GridCell>
@@ -121,7 +127,9 @@ class PropertyDialog extends Component {
           <DialogActions>
             <DialogButton action="close">Add to CRM</DialogButton>
             <a
-              href={`mailto:info@orbmaps.com?subject=Info for ${this.state.propertyName}&amp;body=${this.state.propertyNotes}`}
+              href={`mailto:info@orbmaps.com?subject=Info for ${
+                this.state.propertyName
+              }&amp;body=${this.state.propertyNotes}`}
               target="_blank"
               rel="noopener noreferrer"
             >
