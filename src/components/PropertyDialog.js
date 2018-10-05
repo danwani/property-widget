@@ -47,7 +47,7 @@ class PropertyDialog extends Component {
       <div>
         {/** Standard dialog usage */}
         <Dialog
-          className="PropertyDialog"
+          className="property-dialog"
           open={this.state.standardDialogOpen}
           onClose={evt => {
             console.log(evt.detail.action);
@@ -65,7 +65,7 @@ class PropertyDialog extends Component {
                 <GridInner>
                   <GridCell span="5">
                     <img
-                      className="PropertyDialog-property-image"
+                      className="property-dialog__property-image"
                       alt="Property thumbnail"
                       src="https://www.endlesssummerresort.com.au/assets/cache/endless-summer-1120269w-2000x1000pcy.jpg"
                     />
@@ -141,7 +141,7 @@ class PropertyDialog extends Component {
         </Dialog>
 
         <Button
-          className="PropertyDialog-call-to-action"
+          className="property-dialog__call-to-action"
           raised
           onClick={evt => this.setState({ standardDialogOpen: true })}
         >

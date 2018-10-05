@@ -1,20 +1,23 @@
-.PropertyDialog {
+/* block styling */
+.property-dialog {
   text-align: left;
 }
 
-.PropertyDialog .label {
+.property-dialog a {
+  text-decoration: none;
+}
+
+.property-dialog .label {
   font-weight: bold;
 }
 
-.PropertyDialog-call-to-action {
+/* element specific styling */
+.property-dialog__call-to-action {
   margin-top: 500px;
 }
 
-.PropertyDialog-property-image {
+.property-dialog__property-image {
   width: 100%;
   height: auto;
 }
 
-.PropertyDialog a {
-  text-decoration: none;
-}
