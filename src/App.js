@@ -13,20 +13,39 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentlyOpen: 'tabs',
-      isInCrm: false
+      currentlyOpen: "tabs",
+      currentProperty: {
+        isInCrm: false
+      }
     };
   }
 
   showDetails = evt => {
+    const newProperty = {
+        isInCrm: false,
+        image: 'https://www.endlesssummerresort.com.au/assets/cache/endless-summer-1120269w-2000x1000pcy.jpg',
+        address: 'Unit 1 9-21 Frank St Coolum Beach 4573',
+        plan: 'L5, RP720278',
+        type: 'Apartment',
+        area: 200,
+        lastSaleValue: 670000,
+        lastSaleDate: new Date('02/04/2017'),
+        title: '',
+        comments: ''
+    }
     this.setState({
-      currentlyOpen: 'details'
+      currentProperty: newProperty,
+      currentlyOpen: "details"
     });
+  };
+
+  updateProperty = values => {
+    this.setState({currentProperty: { ...this.state.currentProperty, ...values }});
   };
 
   closeDetails = evt => {
     this.setState({
-      currentlyOpen: 'tabs'
+      currentlyOpen: "tabs"
     });
   };
 
@@ -45,7 +64,12 @@ class App extends Component {
         <Grid>
           <GridCell span="3">
             <div>
-              <LeftContainer currentlyOpen={this.state.currentlyOpen} closeDetails={this.closeDetails} inInCrm={this.state.isInCrm}/>
+              <LeftContainer
+                currentlyOpen={this.state.currentlyOpen}
+                closeDetails={this.closeDetails}
+                currentProperty={this.state.currentProperty}
+                updateProperty={this.updateProperty}
+              />
             </div>
           </GridCell>
           <GridCell span="9">

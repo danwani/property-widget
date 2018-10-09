@@ -1,6 +1,6 @@
 // View component included into the Property Page
 
-import React, {Component} from "react";
+import React, { Component } from "react";
 import { Grid } from "rmwc";
 import { GridCell } from "rmwc";
 import { GridInner } from "rmwc";
@@ -28,50 +28,71 @@ class SavePropertyDialog extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dialogOpen: false,
-      propertyName: "",
-      propertyNotes: ""
+      dialogOpen: false
     };
   }
+
+  openDialog = evt => this.setState({ dialogOpen: true });
+
+  closeDialog = evt => {
+    this.setState({
+      dialogOpen: false
+    });
+  };
+
+  saveProperty = evt => {
+    console.log(this.titleInput.value);
+    this.props.updateProperty({
+      title: this.titleInput.value,
+      comments: this.commentsInput.value
+    });
+    alert("Saving to api...");
+  };
 
   render() {
     return (
       <div>
         <Dialog
           className="property-dialog"
-          open={this.props.savePropertyDialogOpen}
-          onClose={closeDialog}
+          open={this.state.dialogOpen}
+          onClose={this.closeDialog}
         >
-          <DialogTitle>Property Details</DialogTitle>
+          <DialogTitle>Save Property</DialogTitle>
           <DialogContent>
             <Grid>
               <GridCell span="4" className="label">
-                Property Name:
+                Property Title:
               </GridCell>
               <GridCell span="8">
-                <TextField onChange={handleChange} name="propertyName" />
+                <TextField inputRef={e => (this.titleInput = e)} />
               </GridCell>
               <GridCell span="4" className="label">
-                Property Notes:
+                Property Comments:
               </GridCell>
               <GridCell span="8">
                 <TextField
                   textarea
                   fullwidth
                   rows="3"
-                  onChange={handleChange}
-                  name="propertyNotes"
+                  inputRef={e => (this.commentsInput = e)}
                 />
               </GridCell>
             </Grid>
           </DialogContent>
           <DialogActions>
             <DialogButton action="close">Cancel</DialogButton>
-            <DialogButton action="accept" isDefaultAction>
+            <DialogButton
+              onClick={this.saveProperty}
+              action="accept"
+              isDefaultAction
+            >
               Save Property
             </DialogButton>
           </DialogActions>
         </Dialog>
+        <Button raised onClick={this.openDialog} action="addToCRM">
+          Save property
+        </Button>
       </div>
     );
   }

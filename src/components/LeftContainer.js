@@ -4,19 +4,17 @@ import React, { Component } from "react";
 import PropertyDetails from "./PropertyDetails";
 
 class LeftContainer extends Component {
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  };
 
   render() {
-    const { currentlyOpen } = this.props;
+    const { currentlyOpen, currentProperty, updateProperty } = this.props;
 
     return (
       <div>
         {currentlyOpen === "details" && (
           <PropertyDetails
-            handleChange={this.handleChange}
             closeDetails={this.props.closeDetails}
+            currentProperty={currentProperty}
+            updateProperty={updateProperty}
           />
         )}
         {currentlyOpen === "tabs" && <div>TABS</div>}
