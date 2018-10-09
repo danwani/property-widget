@@ -3,6 +3,14 @@
   text-align: left;
 }
 
+.property-details__shown {
+  display: block;
+}
+
+.property-details__hidden {
+  display: none;
+}
+
 .property-details a {
   text-decoration: none;
 }

@@ -3,7 +3,7 @@ import { Grid } from "rmwc";
 import { GridCell } from "rmwc";
 import { GridInner } from "rmwc";
 import background from "./map_background.png";
-import PropertyPage from "./components/PropertyPage";
+import LeftContainer from "./components/LeftContainer";
 import { Button } from "@rmwc/button";
 import "@material/button/dist/mdc.button.css";
 import "./App.css";
@@ -13,25 +13,19 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      standardDialogOpen: false,
-      propertyName: "",
-      propertyNotes: ""
+      currentlyOpen: 'tabs'
     };
   }
 
   showDetails = evt => {
     this.setState({
-      standardDialogOpen: true,
-      propertyName: "",
-      propertyNotes: ""
+      currentlyOpen: 'details'
     });
   };
 
   closeDetails = evt => {
     this.setState({
-      standardDialogOpen: false,
-      propertyName: "",
-      propertyNotes: ""
+      currentlyOpen: 'tabs'
     });
   };
 
@@ -50,7 +44,7 @@ class App extends Component {
         <Grid>
           <GridCell span="3">
             <div>
-              <PropertyPage />
+              <LeftContainer currentlyOpen={this.state.currentlyOpen} closeDetails={this.closeDetails}/>
             </div>
           </GridCell>
           <GridCell span="9">
