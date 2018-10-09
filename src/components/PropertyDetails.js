@@ -11,18 +11,11 @@ import "@material/textfield/dist/mdc.textfield.css";
 import "@material/floating-label/dist/mdc.floating-label.css";
 import "@material/notched-outline/dist/mdc.notched-outline.css";
 import "@material/line-ripple/dist/mdc.line-ripple.css";
+import SavePropertyDialog from "./SavePropertyDialog";
 
 class PropertyDetails extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      propertyName: "",
-      propertyNotes: ""
-    };
-  }
-
   render() {
-    const { displayControl, handleChange, closeDetails } = this.props;
+    const { closeDetails, isInCrm } = this.props;
 
     return (
       <div className="property-details">
@@ -64,9 +57,7 @@ class PropertyDetails extends Component {
           </GridCell>
           <GridCell span="8">02/04/2017</GridCell>
           <GridCell span="12">
-            <Button raised action="addToCRM">
-              Save property
-            </Button>
+            <SavePropertyDialog/>
           </GridCell>
           <GridCell span="12">
             <Button raised action="compareSales">

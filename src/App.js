@@ -13,7 +13,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentlyOpen: 'tabs'
+      currentlyOpen: 'tabs',
+      isInCrm: false
     };
   }
 
@@ -44,7 +45,7 @@ class App extends Component {
         <Grid>
           <GridCell span="3">
             <div>
-              <LeftContainer currentlyOpen={this.state.currentlyOpen} closeDetails={this.closeDetails}/>
+              <LeftContainer currentlyOpen={this.state.currentlyOpen} closeDetails={this.closeDetails} inInCrm={this.state.isInCrm}/>
             </div>
           </GridCell>
           <GridCell span="9">
