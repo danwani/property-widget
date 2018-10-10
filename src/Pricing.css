@@ -1,0 +1,33 @@
+.pricing__options {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+.pricing__options-title {
+  line-height: 1.5rem;
+  font-size: larger;
+  padding: 5px 0;
+}
+
+.pricing__option {
+  width: 200px;
+  height: 200px;
+  margin: 30px;
+  padding: 10px;
+  border: thin solid black;
+  border-radius: 10px;
+  background-color: aliceblue;
+}
+
+.pricing__options-info {
+  padding: 20px 0;
+}
+
+
+.pricing__header {
+  padding-top: 15%;
+  width: 100%;
+}

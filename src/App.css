@@ -1,25 +1,10 @@
-:root {
-  --mdc-layout-grid-margin-desktop: 10px;
-  --mdc-layout-grid-gutter-desktop: 10px;
-  --mdc-layout-grid-column-width-desktop: 72px;
-  --mdc-layout-grid-margin-tablet: 10px;
-  --mdc-layout-grid-gutter-tablet: 10px;
-  --mdc-layout-grid-column-width-tablet: 72px;
-  --mdc-layout-grid-margin-phone: 0px;
-  --mdc-layout-grid-gutter-phone: 10px;
-  --mdc-layout-grid-column-width-phone: 72px;
-}
-
-.App {
+.app {
+  width: 100%;
+  height: 100%;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
-
-.App-header {
+.app-header {
   background-color: #282c34;
   /* min-height: 100vh; */
   display: flex;
@@ -28,21 +13,4 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.App__call-to-action {
-  margin-top: 500px;
 }

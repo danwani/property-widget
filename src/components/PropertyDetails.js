@@ -4,7 +4,9 @@ import React, { Component } from "react";
 import { Grid, GridInner } from "rmwc";
 import { GridCell } from "rmwc";
 import { Button } from "@rmwc/button";
+import { IconButton } from "@rmwc/icon-button";
 import "@material/button/dist/mdc.button.css";
+import "@material/icon-button/dist/mdc.icon-button.css";
 import "./PropertyDetails.css";
 import "@material/layout-grid/dist/mdc.layout-grid.css";
 import "@material/textfield/dist/mdc.textfield.css";
@@ -21,10 +23,9 @@ class PropertyDetails extends Component {
     return (
       <div className="property-details">
         <Grid>
-          <GridCell span="12">
-            <Button raised onClick={closeDetails}>
-              X
-            </Button>
+          <GridCell span="10" />
+          <GridCell span="2">
+            <IconButton icon="close" label="Close" onClick={closeDetails} />
           </GridCell>
           <GridCell span="12">
             <img
@@ -61,21 +62,21 @@ class PropertyDetails extends Component {
           </GridCell>
           {currentProperty.title !== "" && (
             <GridCell span="12">
-            <GridInner>
-              <GridCell span="4" className="label">
-                Property name:
-              </GridCell>
-              <GridCell span="8">{currentProperty.title}</GridCell>
+              <GridInner>
+                <GridCell span="4" className="label">
+                  Property name:
+                </GridCell>
+                <GridCell span="8">{currentProperty.title}</GridCell>
               </GridInner>
             </GridCell>
           )}
           {currentProperty.comments !== "" && (
             <GridCell span="12">
-            <GridInner>
-              <GridCell span="4" className="label">
-                Property notes:
-              </GridCell>
-              <GridCell span="8">{currentProperty.comments}</GridCell>
+              <GridInner>
+                <GridCell span="4" className="label">
+                  Property notes:
+                </GridCell>
+                <GridCell span="8">{currentProperty.comments}</GridCell>
               </GridInner>
             </GridCell>
           )}

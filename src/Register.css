@@ -1,0 +1,33 @@
+.register__register-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 100%;
+}
+
+.register__payment-container {
+  width: 200px;
+  padding: 50px;
+  border: thin solid black;
+  border-radius: 10px;
+}
+
+.register__header {
+  padding-top: 15%;
+  width: 100%;
+}
+
+.register__back-button {
+  float: left;
+  padding: 0 20px;
+}
+
+.register__forward-button {
+  float: right;
+  padding: 0 20px;
+}
+
+.register__break {
+  width: 100%;
+}
