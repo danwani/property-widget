@@ -90,7 +90,12 @@ class SavePropertyDialog extends Component {
             </DialogButton>
           </DialogActions>
         </Dialog>
-        <Button outlined onClick={this.openDialog} action="addToCRM">
+        <Button
+          outlined
+          onClick={this.openDialog}
+          action="addToCRM"
+          className="property-dialog__add-button"
+        >
           Save property
         </Button>
       </div>

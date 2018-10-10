@@ -37,9 +37,14 @@
 
 .property-details__table-cell {
   border: none;
-  word-break: break-word;
+  white-space: pre-wrap;
+}
+.property-details__table-cell:first-child {
+  padding-left: 0;
+  white-space: nowrap;
 }
 
 .property-details__call-to-action {
-  padding: 5px;
+  margin-top: 5px;
+  width: 100%;
 }

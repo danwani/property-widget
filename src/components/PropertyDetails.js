@@ -42,69 +42,117 @@ class PropertyDetails extends Component {
             <DataTableHead />
             <DataTableBody>
               <DataTableRow>
-                <DataTableCell className="property-details__table-cell">
+                <DataTableCell
+                  className="property-details__table-cell"
+                  alignStart
+                >
                   Address
                 </DataTableCell>
-                <DataTableCell className="property-details__table-cell">
+                <DataTableCell
+                  className="property-details__table-cell"
+                  alignStart
+                >
                   {currentProperty.address}
                 </DataTableCell>
               </DataTableRow>
               <DataTableRow>
-                <DataTableCell className="property-details__table-cell">
+                <DataTableCell
+                  className="property-details__table-cell"
+                  alignStart
+                >
                   Plan
                 </DataTableCell>
-                <DataTableCell className="property-details__table-cell">
+                <DataTableCell
+                  className="property-details__table-cell"
+                  alignStart
+                >
                   {currentProperty.plan}
                 </DataTableCell>
               </DataTableRow>
               <DataTableRow>
-                <DataTableCell className="property-details__table-cell">
+                <DataTableCell
+                  className="property-details__table-cell"
+                  alignStart
+                >
                   Type
                 </DataTableCell>
-                <DataTableCell className="property-details__table-cell">
+                <DataTableCell
+                  className="property-details__table-cell"
+                  alignStart
+                >
                   {currentProperty.type}
                 </DataTableCell>
               </DataTableRow>
               <DataTableRow>
-                <DataTableCell className="property-details__table-cell">
+                <DataTableCell
+                  className="property-details__table-cell"
+                  alignStart
+                >
                   Area
                 </DataTableCell>
-                <DataTableCell className="property-details__table-cell">
+                <DataTableCell
+                  className="property-details__table-cell"
+                  alignStart
+                >
                   {currentProperty.area} m&sup3;
                 </DataTableCell>
               </DataTableRow>
               <DataTableRow>
-                <DataTableCell className="property-details__table-cell">
+                <DataTableCell
+                  className="property-details__table-cell"
+                  alignStart
+                >
                   Last Sale
                 </DataTableCell>
-                <DataTableCell className="property-details__table-cell">
+                <DataTableCell
+                  className="property-details__table-cell"
+                  alignStart
+                >
                   ${currentProperty.lastSaleValue}
                 </DataTableCell>
               </DataTableRow>
               <DataTableRow>
-                <DataTableCell className="property-details__table-cell">
+                <DataTableCell
+                  className="property-details__table-cell"
+                  alignStart
+                >
                   Sale Date
                 </DataTableCell>
-                <DataTableCell className="property-details__table-cell">
+                <DataTableCell
+                  className="property-details__table-cell"
+                  alignStart
+                >
                   {Moment(currentProperty.lastSaleDate).format("DD/MM/YYYY")}
                 </DataTableCell>
               </DataTableRow>
               {currentProperty.title !== "" && (
                 <DataTableRow>
-                  <DataTableCell className="property-details__table-cell">
+                  <DataTableCell
+                    className="property-details__table-cell"
+                    alignStart
+                  >
                     Property name
                   </DataTableCell>
-                  <DataTableCell className="property-details__table-cell">
+                  <DataTableCell
+                    className="property-details__table-cell"
+                    alignStart
+                  >
                     {currentProperty.title}
                   </DataTableCell>
                 </DataTableRow>
               )}
               {currentProperty.comments !== "" && (
                 <DataTableRow>
-                  <DataTableCell className="property-details__table-cell">
+                  <DataTableCell
+                    className="property-details__table-cell"
+                    alignStart
+                  >
                     Property notes
                   </DataTableCell>
-                  <DataTableCell className="property-details__table-cell">
+                  <DataTableCell
+                    className="property-details__table-cell"
+                    alignStart
+                  >
                     {currentProperty.comments}
                   </DataTableCell>
                 </DataTableRow>
@@ -112,19 +160,24 @@ class PropertyDetails extends Component {
             </DataTableBody>
           </DataTableContent>
         </DataTable>
-        <div className="property-details__call-to-action">
+        <div>
           <SavePropertyDialog
             currentProperty={currentProperty}
             updateProperty={updateProperty}
+            className="property-details__call-to-action"
           />
-        </div>
-        <div className="property-details__call-to-action">
-          <Button outlined action="compareSales">
+          <Button
+            outlined
+            action="compareSales"
+            className="property-details__call-to-action"
+          >
             Compare sales
           </Button>
-        </div>
-        <div className="property-details__call-to-action">
-          <Button outlined action="prepareMail">
+          <Button
+            outlined
+            action="prepareMail"
+            className="property-details__call-to-action"
+          >
             Prepare mail
           </Button>
         </div>

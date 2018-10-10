@@ -1,4 +1,6 @@
 /* block styling */
 
 /* element specific styling */
-
+.property-dialog__add-button {
+  width: 100%;
+}
