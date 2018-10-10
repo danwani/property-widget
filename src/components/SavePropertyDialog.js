@@ -72,7 +72,6 @@ class SavePropertyDialog extends Component {
               <GridCell span="8">
                 <TextField
                   textarea
-                  fullwidth
                   rows="3"
                   inputRef={e => (this.commentsInput = e)}
                 />
