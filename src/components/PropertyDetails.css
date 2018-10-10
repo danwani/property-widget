@@ -24,3 +24,22 @@
   width: 100%;
   height: auto;
 }
+
+.property-details__close-button {
+  width: 100%;
+  text-align: end;
+}
+
+.property-details__detail-table {
+  width: 100%;
+  border: none;
+}
+
+.property-details__table-cell {
+  border: none;
+  word-break: break-word;
+}
+
+.property-details__call-to-action {
+  padding: 5px;
+}

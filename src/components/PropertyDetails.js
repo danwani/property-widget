@@ -1,14 +1,21 @@
 // View component included into the Property Page
 
 import React, { Component } from "react";
-import { Grid, GridInner } from "rmwc";
-import { GridCell } from "rmwc";
 import { Button } from "@rmwc/button";
 import { IconButton } from "@rmwc/icon-button";
+import {
+  DataTable,
+  DataTableContent,
+  DataTableHead,
+  DataTableBody,
+  DataTableHeadCell,
+  DataTableRow,
+  DataTableCell
+} from "@rmwc/data-table";
+import "@rmwc/data-table/data-table.css";
 import "@material/button/dist/mdc.button.css";
 import "@material/icon-button/dist/mdc.icon-button.css";
 import "./PropertyDetails.css";
-import "@material/layout-grid/dist/mdc.layout-grid.css";
 import "@material/textfield/dist/mdc.textfield.css";
 import "@material/floating-label/dist/mdc.floating-label.css";
 import "@material/notched-outline/dist/mdc.notched-outline.css";
@@ -22,81 +29,105 @@ class PropertyDetails extends Component {
 
     return (
       <div className="property-details">
-        <Grid>
-          <GridCell span="10" />
-          <GridCell span="2">
-            <IconButton icon="close" label="Close" onClick={closeDetails} />
-          </GridCell>
-          <GridCell span="12">
-            <img
-              className="property-details__property-image"
-              alt="Property thumbnail"
-              src={currentProperty.image}
-            />
-          </GridCell>
-          <GridCell span="4" className="label">
-            Address:
-          </GridCell>
-          <GridCell span="8">{currentProperty.address}</GridCell>
-          <GridCell span="4" className="label">
-            Plan:
-          </GridCell>
-          <GridCell span="8">{currentProperty.plan}</GridCell>
-          <GridCell span="4" className="label">
-            Type:
-          </GridCell>
-          <GridCell span="8">{currentProperty.type}</GridCell>
-          <GridCell span="4" className="label">
-            Area:
-          </GridCell>
-          <GridCell span="8">{currentProperty.area} m&sup3;</GridCell>
-          <GridCell span="4" className="label">
-            Last Sale:
-          </GridCell>
-          <GridCell span="8">${currentProperty.lastSaleValue}</GridCell>
-          <GridCell span="4" className="label">
-            Sale Date:
-          </GridCell>
-          <GridCell span="8">
-            {Moment(currentProperty.lastSaleDate).format("DD/MM/YYYY")}
-          </GridCell>
-          {currentProperty.title !== "" && (
-            <GridCell span="12">
-              <GridInner>
-                <GridCell span="4" className="label">
-                  Property name:
-                </GridCell>
-                <GridCell span="8">{currentProperty.title}</GridCell>
-              </GridInner>
-            </GridCell>
-          )}
-          {currentProperty.comments !== "" && (
-            <GridCell span="12">
-              <GridInner>
-                <GridCell span="4" className="label">
-                  Property notes:
-                </GridCell>
-                <GridCell span="8">{currentProperty.comments}</GridCell>
-              </GridInner>
-            </GridCell>
-          )}
-          <GridCell span="12">
-            <SavePropertyDialog
-              currentProperty={currentProperty}
-              updateProperty={updateProperty}
-            />
-          </GridCell>
-          <GridCell span="12">
-            <Button raised action="compareSales">
-              Compare sales
-            </Button>
-          </GridCell>
-          <GridCell span="12">
-            <Button raised action="prepareMail">
-              Prepare mail
-            </Button>
-          </GridCell>
-        </Grid>
+        <div className="property-details__close-button">
+          <IconButton icon="close" label="Close" onClick={closeDetails} />
+        </div>
+        <img
+          className="property-details__property-image"
+          alt="Property thumbnail"
+          src={currentProperty.image}
+        />
+        <DataTable className="property-details__detail-table">
+          <DataTableContent>
+            <DataTableHead />
+            <DataTableBody>
+              <DataTableRow>
+                <DataTableCell className="property-details__table-cell">
+                  Address
+                </DataTableCell>
+                <DataTableCell className="property-details__table-cell">
+                  {currentProperty.address}
+                </DataTableCell>
+              </DataTableRow>
+              <DataTableRow>
+                <DataTableCell className="property-details__table-cell">
+                  Plan
+                </DataTableCell>
+                <DataTableCell className="property-details__table-cell">
+                  {currentProperty.plan}
+                </DataTableCell>
+              </DataTableRow>
+              <DataTableRow>
+                <DataTableCell className="property-details__table-cell">
+                  Type
+                </DataTableCell>
+                <DataTableCell className="property-details__table-cell">
+                  {currentProperty.type}
+                </DataTableCell>
+              </DataTableRow>
+              <DataTableRow>
+                <DataTableCell className="property-details__table-cell">
+                  Area
+                </DataTableCell>
+                <DataTableCell className="property-details__table-cell">
+                  {currentProperty.area} m&sup3;
+                </DataTableCell>
+              </DataTableRow>
+              <DataTableRow>
+                <DataTableCell className="property-details__table-cell">
+                  Last Sale
+                </DataTableCell>
+                <DataTableCell className="property-details__table-cell">
+                  ${currentProperty.lastSaleValue}
+                </DataTableCell>
+              </DataTableRow>
+              <DataTableRow>
+                <DataTableCell className="property-details__table-cell">
+                  Sale Date
+                </DataTableCell>
+                <DataTableCell className="property-details__table-cell">
+                  {Moment(currentProperty.lastSaleDate).format("DD/MM/YYYY")}
+                </DataTableCell>
+              </DataTableRow>
+              {currentProperty.title !== "" && (
+                <DataTableRow>
+                  <DataTableCell className="property-details__table-cell">
+                    Property name
+                  </DataTableCell>
+                  <DataTableCell className="property-details__table-cell">
+                    {currentProperty.title}
+                  </DataTableCell>
+                </DataTableRow>
+              )}
+              {currentProperty.comments !== "" && (
+                <DataTableRow>
+                  <DataTableCell className="property-details__table-cell">
+                    Property notes
+                  </DataTableCell>
+                  <DataTableCell className="property-details__table-cell">
+                    {currentProperty.comments}
+                  </DataTableCell>
+                </DataTableRow>
+              )}
+            </DataTableBody>
+          </DataTableContent>
+        </DataTable>
+        <div className="property-details__call-to-action">
+          <SavePropertyDialog
+            currentProperty={currentProperty}
+            updateProperty={updateProperty}
+          />
+        </div>
+        <div className="property-details__call-to-action">
+          <Button outlined action="compareSales">
+            Compare sales
+          </Button>
+        </div>
+        <div className="property-details__call-to-action">
+          <Button outlined action="prepareMail">
+            Prepare mail
+          </Button>
+        </div>
       </div>
     );
   }
