@@ -34,6 +34,14 @@
   width: 100%;
 }
 
+.property-details__details-list-icon {
+  margin-right: 15px;
+}
+/* @Kris why does the above not take precidence over this below? */
+.property-details .mdc-list-item__graphic {
+  margin-right: 15px;
+}
+
 .property-details__details-list-label {
   font-size: x-small;
 }

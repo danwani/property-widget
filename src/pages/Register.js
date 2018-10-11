@@ -15,7 +15,7 @@ class Register extends Component {
     };
   }
 
-  requestAuth = password => {
+  requestAuth = password => (event) => {
     const authUrl = "https://reqres.in/api/register";
     let authCreds = {
       email: "sydney@fife",

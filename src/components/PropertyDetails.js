@@ -38,9 +38,9 @@ class PropertyDetails extends Component {
           alt="Property thumbnail"
           src={currentProperty.image}
         />
-        <List twoLine className="property-details__details-list">
+        <List dense twoLine className="property-details__details-list">
           <ListItem>
-            <ListItemGraphic icon="room" />
+            <ListItemGraphic className="property-details__details-list-icon" icon="room" />
             <ListItemText>
               <ListItemPrimaryText className="property-details__details-list-label">
                 Address
@@ -51,7 +51,7 @@ class PropertyDetails extends Component {
             </ListItemText>
           </ListItem>
           <ListItem>
-            <ListItemGraphic icon="account_balance" />
+            <ListItemGraphic className="property-details__details-list-icon" icon="account_balance" />
             <ListItemText>
               <ListItemPrimaryText className="property-details__details-list-label">
                 Lot/Plan
@@ -62,7 +62,7 @@ class PropertyDetails extends Component {
             </ListItemText>
           </ListItem>
           <ListItem>
-            <ListItemGraphic icon="location_city" />
+            <ListItemGraphic className="property-details__details-list-icon" icon="location_city" />
             <ListItemText>
               <ListItemPrimaryText className="property-details__details-list-label">
                 Type
@@ -73,7 +73,7 @@ class PropertyDetails extends Component {
             </ListItemText>
           </ListItem>
           <ListItem>
-            <ListItemGraphic icon="map" />
+            <ListItemGraphic className="property-details__details-list-icon" icon="map" />
             <ListItemText>
               <ListItemPrimaryText className="property-details__details-list-label">
                 Area
@@ -84,7 +84,7 @@ class PropertyDetails extends Component {
             </ListItemText>
           </ListItem>
           <ListItem>
-            <ListItemGraphic icon="monetization_on" />
+            <ListItemGraphic className="property-details__details-list-icon" icon="monetization_on" />
             <ListItemText>
               <ListItemPrimaryText className="property-details__details-list-label">
                 Last Sale
@@ -100,7 +100,7 @@ class PropertyDetails extends Component {
             </ListItemText>
           </ListItem>
           <ListItem>
-            <ListItemGraphic icon="event" />
+            <ListItemGraphic className="property-details__details-list-icon" icon="event" />
             <ListItemText>
               <ListItemPrimaryText className="property-details__details-list-label">
                 Sale Date
@@ -112,7 +112,7 @@ class PropertyDetails extends Component {
           </ListItem>
           {currentProperty.title !== "" && (
             <ListItem>
-              <ListItemGraphic icon="favorite" />
+              <ListItemGraphic className="property-details__details-list-icon" icon="favorite" />
               <ListItemText>
                 <ListItemPrimaryText className="property-details__details-list-label">
                   Property Name
@@ -125,7 +125,7 @@ class PropertyDetails extends Component {
           )}
           {currentProperty.comments !== "" && (
             <ListItem>
-              <ListItemGraphic icon="notes" />
+              <ListItemGraphic className="property-details__details-list-icon" icon="notes" />
               <ListItemText>
                 <ListItemPrimaryText className="property-details__details-list-label">
                   Property Notes
