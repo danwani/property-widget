@@ -4,15 +4,15 @@ import React, { Component } from "react";
 import { Button } from "@rmwc/button";
 import { IconButton } from "@rmwc/icon-button";
 import {
-  DataTable,
-  DataTableContent,
-  DataTableHead,
-  DataTableBody,
-  DataTableHeadCell,
-  DataTableRow,
-  DataTableCell
-} from "@rmwc/data-table";
-import "@rmwc/data-table/data-table.css";
+  List,
+  ListItem,
+  ListItemGraphic,
+  ListItemText,
+  ListItemPrimaryText,
+  ListItemSecondaryText
+} from "@rmwc/list";
+import { SimpleListItem } from "@rmwc/list";
+import "@material/list/dist/mdc.list.css";
 import "@material/button/dist/mdc.button.css";
 import "@material/icon-button/dist/mdc.icon-button.css";
 import "./PropertyDetails.css";
@@ -37,129 +37,105 @@ class PropertyDetails extends Component {
           alt="Property thumbnail"
           src={currentProperty.image}
         />
-        <DataTable className="property-details__detail-table">
-          <DataTableContent>
-            <DataTableHead />
-            <DataTableBody>
-              <DataTableRow>
-                <DataTableCell
-                  className="property-details__table-cell"
-                  alignStart
-                >
-                  Address
-                </DataTableCell>
-                <DataTableCell
-                  className="property-details__table-cell"
-                  alignStart
-                >
-                  {currentProperty.address}
-                </DataTableCell>
-              </DataTableRow>
-              <DataTableRow>
-                <DataTableCell
-                  className="property-details__table-cell"
-                  alignStart
-                >
-                  Plan
-                </DataTableCell>
-                <DataTableCell
-                  className="property-details__table-cell"
-                  alignStart
-                >
-                  {currentProperty.plan}
-                </DataTableCell>
-              </DataTableRow>
-              <DataTableRow>
-                <DataTableCell
-                  className="property-details__table-cell"
-                  alignStart
-                >
-                  Type
-                </DataTableCell>
-                <DataTableCell
-                  className="property-details__table-cell"
-                  alignStart
-                >
-                  {currentProperty.type}
-                </DataTableCell>
-              </DataTableRow>
-              <DataTableRow>
-                <DataTableCell
-                  className="property-details__table-cell"
-                  alignStart
-                >
-                  Area
-                </DataTableCell>
-                <DataTableCell
-                  className="property-details__table-cell"
-                  alignStart
-                >
-                  {currentProperty.area} m&sup3;
-                </DataTableCell>
-              </DataTableRow>
-              <DataTableRow>
-                <DataTableCell
-                  className="property-details__table-cell"
-                  alignStart
-                >
-                  Last Sale
-                </DataTableCell>
-                <DataTableCell
-                  className="property-details__table-cell"
-                  alignStart
-                >
-                  ${currentProperty.lastSaleValue}
-                </DataTableCell>
-              </DataTableRow>
-              <DataTableRow>
-                <DataTableCell
-                  className="property-details__table-cell"
-                  alignStart
-                >
-                  Sale Date
-                </DataTableCell>
-                <DataTableCell
-                  className="property-details__table-cell"
-                  alignStart
-                >
-                  {Moment(currentProperty.lastSaleDate).format("DD/MM/YYYY")}
-                </DataTableCell>
-              </DataTableRow>
-              {currentProperty.title !== "" && (
-                <DataTableRow>
-                  <DataTableCell
-                    className="property-details__table-cell"
-                    alignStart
-                  >
-                    Property name
-                  </DataTableCell>
-                  <DataTableCell
-                    className="property-details__table-cell"
-                    alignStart
-                  >
-                    {currentProperty.title}
-                  </DataTableCell>
-                </DataTableRow>
-              )}
-              {currentProperty.comments !== "" && (
-                <DataTableRow>
-                  <DataTableCell
-                    className="property-details__table-cell"
-                    alignStart
-                  >
-                    Property notes
-                  </DataTableCell>
-                  <DataTableCell
-                    className="property-details__table-cell"
-                    alignStart
-                  >
-                    {currentProperty.comments}
-                  </DataTableCell>
-                </DataTableRow>
-              )}
-            </DataTableBody>
-          </DataTableContent>
-        </DataTable>
+        <List twoLine className="property-details__details-list">
+          <ListItem>
+            <ListItemGraphic icon="room" />
+            <ListItemText>
+              <ListItemPrimaryText className="property-details__details-list-label">
+                Address
+              </ListItemPrimaryText>
+              <ListItemSecondaryText className="property-details__details-list-detail">
+                {currentProperty.address}
+              </ListItemSecondaryText>
+            </ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemGraphic icon="account_balance" />
+            <ListItemText>
+              <ListItemPrimaryText className="property-details__details-list-label">
+                Lot/Plan
+              </ListItemPrimaryText>
+              <ListItemSecondaryText className="property-details__details-list-detail">
+                {currentProperty.plan}
+              </ListItemSecondaryText>
+            </ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemGraphic icon="location_city" />
+            <ListItemText>
+              <ListItemPrimaryText className="property-details__details-list-label">
+                Type
+              </ListItemPrimaryText>
+              <ListItemSecondaryText className="property-details__details-list-detail">
+                {currentProperty.type}
+              </ListItemSecondaryText>
+            </ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemGraphic icon="map" />
+            <ListItemText>
+              <ListItemPrimaryText className="property-details__details-list-label">
+                Area
+              </ListItemPrimaryText>
+              <ListItemSecondaryText className="property-details__details-list-detail">
+                {currentProperty.area} m&sup2;
+              </ListItemSecondaryText>
+            </ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemGraphic icon="monetization_on" />
+            <ListItemText>
+              <ListItemPrimaryText className="property-details__details-list-label">
+                Last Sale
+              </ListItemPrimaryText>
+              <ListItemSecondaryText className="property-details__details-list-detail">
+                {new Intl.NumberFormat("en-GB", {
+                  style: "currency",
+                  currency: "AUD",
+                  minimumFractionDigits: 0,
+                  maximumFractionDigits: 0
+                }).format(currentProperty.lastSaleValue)}
+              </ListItemSecondaryText>
+            </ListItemText>
+          </ListItem>
+          <ListItem>
+            <ListItemGraphic icon="event" />
+            <ListItemText>
+              <ListItemPrimaryText className="property-details__details-list-label">
+                Sale Date
+              </ListItemPrimaryText>
+              <ListItemSecondaryText className="property-details__details-list-detail">
+                {Moment(currentProperty.lastSaleDate).format("DD/MM/YYYY")}
+              </ListItemSecondaryText>
+            </ListItemText>
+          </ListItem>
+          {currentProperty.title !== "" && (
+            <ListItem>
+              <ListItemGraphic icon="favorite" />
+              <ListItemText>
+                <ListItemPrimaryText className="property-details__details-list-label">
+                  Property Name
+                </ListItemPrimaryText>
+                <ListItemSecondaryText className="property-details__details-list-detail">
+                  {currentProperty.title}
+                </ListItemSecondaryText>
+              </ListItemText>
+            </ListItem>
+          )}
+          {currentProperty.comments !== "" && (
+            <ListItem>
+              <ListItemGraphic icon="notes" />
+              <ListItemText>
+                <ListItemPrimaryText className="property-details__details-list-label">
+                  Property Notes
+                </ListItemPrimaryText>
+                <ListItemSecondaryText className="property-details__details-list-detail">
+                  {currentProperty.comments}
+                </ListItemSecondaryText>
+              </ListItemText>
+            </ListItem>
+          )}
+        </List>
         <div>
           <SavePropertyDialog
             currentProperty={currentProperty}

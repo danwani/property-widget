@@ -30,18 +30,17 @@
   text-align: end;
 }
 
-.property-details__detail-table {
+.property-details__details-list {
   width: 100%;
-  border: none;
 }
 
-.property-details__table-cell {
-  border: none;
-  white-space: pre-wrap;
+.property-details__details-list-label {
+  font-size: x-small;
 }
-.property-details__table-cell:first-child {
-  padding-left: 0;
-  white-space: nowrap;
+
+.property-details__details-list-detail {
+  font-size: medium;
+  white-space: pre-wrap;
 }
 
 .property-details__call-to-action {
