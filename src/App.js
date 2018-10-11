@@ -1,9 +1,10 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import Home from "./Home";
-import Pricing from "./Pricing";
-import Register from "./Register";
-import "./App.css"
+import Home from "./pages/Home";
+import Pricing from "./pages/Pricing";
+import Register from "./pages/Register";
+
+import "./App.css";
 
 class App extends Component {
   render() {

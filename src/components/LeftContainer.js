@@ -1,10 +1,9 @@
 // Container that holds the Property Details
-
 import React, { Component } from "react";
+
 import PropertyDetails from "./PropertyDetails";
 
 class LeftContainer extends Component {
-
   render() {
     const { currentlyOpen, currentProperty, updateProperty } = this.props;
 

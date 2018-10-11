@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import { Button } from "@rmwc/button";
 import { IconButton } from "@rmwc/icon-button";
+import Moment from "moment";
 import {
   List,
   ListItem,
@@ -11,17 +12,17 @@ import {
   ListItemPrimaryText,
   ListItemSecondaryText
 } from "@rmwc/list";
-import { SimpleListItem } from "@rmwc/list";
+
+import SavePropertyDialog from "./SavePropertyDialog";
+
 import "@material/list/dist/mdc.list.css";
 import "@material/button/dist/mdc.button.css";
 import "@material/icon-button/dist/mdc.icon-button.css";
-import "./PropertyDetails.css";
 import "@material/textfield/dist/mdc.textfield.css";
 import "@material/floating-label/dist/mdc.floating-label.css";
 import "@material/notched-outline/dist/mdc.notched-outline.css";
 import "@material/line-ripple/dist/mdc.line-ripple.css";
-import SavePropertyDialog from "./SavePropertyDialog";
-import Moment from "moment";
+import "./PropertyDetails.css";
 
 class PropertyDetails extends Component {
   render() {

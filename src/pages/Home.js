@@ -3,10 +3,12 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { Grid } from "rmwc";
 import { GridCell } from "rmwc";
 import background from "./map_background.png";
-import LeftContainer from "./components/LeftContainer";
+import LeftContainer from "../components/LeftContainer";
 import { Button } from "@rmwc/button";
-import "@material/button/dist/mdc.button.css";
+
 import "./Home.css";
+
+import "@material/button/dist/mdc.button.css";
 import "@material/layout-grid/dist/mdc.layout-grid.css";
 
 class Home extends Component {
