@@ -28,7 +28,6 @@ import "./PropertyDetails.css";
 class PropertyDetails extends Component {
   render() {
     const { currentProperty } = this.props;
-    console.log(this.props);
 
     return (
       <div className="property-details">
@@ -186,8 +185,6 @@ class PropertyDetails extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  currentProperty: state.currentProperty
-});
+const mapStateToProps = state => state.property;
 
 export default connect(mapStateToProps)(PropertyDetails);

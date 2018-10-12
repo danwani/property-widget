@@ -1,4 +1,4 @@
-const initialState = [{
+const initialState = {
   currentProperty: {
     isInCrm: false,
     image:
@@ -12,7 +12,7 @@ const initialState = [{
     title: "",
     comments: ""
   }
-}];
+};
 
 const property = (state = initialState, action) => {
   switch (action.type) {
