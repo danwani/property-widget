@@ -1,8 +1,6 @@
-const initialState = [
-  {
-    currentlyOpen: "details"
-  }
-];
+const initialState = {
+  currentlyOpen: "tabs"
+};
 
 const menu = (state = initialState, action) => {
   switch (action.type) {

@@ -3,18 +3,16 @@ import React from "react";
 import { connect } from "react-redux";
 import PropertyDetails from "./PropertyDetails";
 
-const LeftContainer = currentlyOpen => {
+const LeftContainer = menu => {
+  const { currentlyOpen } = menu;
   return (
     <div>
-      <PropertyDetails />
-      {/* {currentlyOpen === "details" && <PropertyDetails />} */}
-      {/* {currentlyOpen === "tabs" && <div>TABS</div>} */}
+      {currentlyOpen === "details" && <PropertyDetails />}
+      {currentlyOpen === "tabs" && <div>TABS</div>}
     </div>
   );
 };
 
-const mapStateToProps = state => ({
-  currentlyOpen: state.currentlyOpen
-});
+const mapStateToProps = state => state.menu;
 
 export default connect(mapStateToProps)(LeftContainer);
