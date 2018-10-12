@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { connect } from "react-redux";
 import { Grid } from "rmwc";
 import { GridCell } from "rmwc";
 import background from "./map_background.png";
@@ -14,42 +15,8 @@ import "@material/layout-grid/dist/mdc.layout-grid.css";
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      currentlyOpen: "tabs",
-      currentProperty: {
-        isInCrm: false
-      }
-    };
+    const { showDetails } = this.props;
   }
-
-  showDetails = evt => {
-    const newProperty = {
-        isInCrm: false,
-        image: 'https://www.endlesssummerresort.com.au/assets/cache/endless-summer-1120269w-2000x1000pcy.jpg',
-        address: 'Unit 1 9-21 Frank St Coolum Beach 4573',
-        plan: 'L5, RP720278',
-        type: 'Apartment',
-        area: 200,
-        lastSaleValue: 670000,
-        lastSaleDate: new Date('02/04/2017'),
-        title: '',
-        comments: ''
-    }
-    this.setState({
-      currentProperty: newProperty,
-      currentlyOpen: "details"
-    });
-  };
-
-  updateProperty = values => {
-    this.setState({currentProperty: { ...this.state.currentProperty, ...values }});
-  };
-
-  closeDetails = evt => {
-    this.setState({
-      currentlyOpen: "tabs"
-    });
-  };
 
   render() {
     const backgroundStyle = {
@@ -65,12 +32,7 @@ class Home extends Component {
         <Grid>
           <GridCell span="3">
             <div>
-              <LeftContainer
-                currentlyOpen={this.state.currentlyOpen}
-                closeDetails={this.closeDetails}
-                currentProperty={this.state.currentProperty}
-                updateProperty={this.updateProperty}
-              />
+              <LeftContainer/>
             </div>
           </GridCell>
           <GridCell span="9">
@@ -91,3 +53,5 @@ class Home extends Component {
 }
 
 export default Home;
+
+//TODO map showDetails action using mapDispatch

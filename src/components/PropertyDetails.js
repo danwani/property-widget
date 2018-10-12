@@ -1,6 +1,7 @@
 // View component included into the Property Page
 
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Button } from "@rmwc/button";
 import { IconButton } from "@rmwc/icon-button";
 import Moment from "moment";
@@ -26,12 +27,14 @@ import "./PropertyDetails.css";
 
 class PropertyDetails extends Component {
   render() {
-    const { closeDetails, currentProperty, updateProperty } = this.props;
+    const { currentProperty } = this.props;
+    console.log(this.props);
 
     return (
       <div className="property-details">
         <div className="property-details__close-button">
-          <IconButton icon="close" label="Close" onClick={closeDetails} />
+          {/* <IconButton icon="close" label="Close" onClick={closeDetails} /> */}
+          <IconButton icon="close" label="Close" />
         </div>
         <img
           className="property-details__property-image"
@@ -40,7 +43,10 @@ class PropertyDetails extends Component {
         />
         <List dense twoLine className="property-details__details-list">
           <ListItem>
-            <ListItemGraphic className="property-details__details-list-icon" icon="room" />
+            <ListItemGraphic
+              className="property-details__details-list-icon"
+              icon="room"
+            />
             <ListItemText>
               <ListItemPrimaryText className="property-details__details-list-label">
                 Address
@@ -51,7 +57,10 @@ class PropertyDetails extends Component {
             </ListItemText>
           </ListItem>
           <ListItem>
-            <ListItemGraphic className="property-details__details-list-icon" icon="account_balance" />
+            <ListItemGraphic
+              className="property-details__details-list-icon"
+              icon="account_balance"
+            />
             <ListItemText>
               <ListItemPrimaryText className="property-details__details-list-label">
                 Lot/Plan
@@ -62,7 +71,10 @@ class PropertyDetails extends Component {
             </ListItemText>
           </ListItem>
           <ListItem>
-            <ListItemGraphic className="property-details__details-list-icon" icon="location_city" />
+            <ListItemGraphic
+              className="property-details__details-list-icon"
+              icon="location_city"
+            />
             <ListItemText>
               <ListItemPrimaryText className="property-details__details-list-label">
                 Type
@@ -73,7 +85,10 @@ class PropertyDetails extends Component {
             </ListItemText>
           </ListItem>
           <ListItem>
-            <ListItemGraphic className="property-details__details-list-icon" icon="map" />
+            <ListItemGraphic
+              className="property-details__details-list-icon"
+              icon="map"
+            />
             <ListItemText>
               <ListItemPrimaryText className="property-details__details-list-label">
                 Area
@@ -84,7 +99,10 @@ class PropertyDetails extends Component {
             </ListItemText>
           </ListItem>
           <ListItem>
-            <ListItemGraphic className="property-details__details-list-icon" icon="monetization_on" />
+            <ListItemGraphic
+              className="property-details__details-list-icon"
+              icon="monetization_on"
+            />
             <ListItemText>
               <ListItemPrimaryText className="property-details__details-list-label">
                 Last Sale
@@ -100,7 +118,10 @@ class PropertyDetails extends Component {
             </ListItemText>
           </ListItem>
           <ListItem>
-            <ListItemGraphic className="property-details__details-list-icon" icon="event" />
+            <ListItemGraphic
+              className="property-details__details-list-icon"
+              icon="event"
+            />
             <ListItemText>
               <ListItemPrimaryText className="property-details__details-list-label">
                 Sale Date
@@ -112,7 +133,10 @@ class PropertyDetails extends Component {
           </ListItem>
           {currentProperty.title !== "" && (
             <ListItem>
-              <ListItemGraphic className="property-details__details-list-icon" icon="favorite" />
+              <ListItemGraphic
+                className="property-details__details-list-icon"
+                icon="favorite"
+              />
               <ListItemText>
                 <ListItemPrimaryText className="property-details__details-list-label">
                   Property Name
@@ -125,7 +149,10 @@ class PropertyDetails extends Component {
           )}
           {currentProperty.comments !== "" && (
             <ListItem>
-              <ListItemGraphic className="property-details__details-list-icon" icon="notes" />
+              <ListItemGraphic
+                className="property-details__details-list-icon"
+                icon="notes"
+              />
               <ListItemText>
                 <ListItemPrimaryText className="property-details__details-list-label">
                   Property Notes
@@ -138,11 +165,7 @@ class PropertyDetails extends Component {
           )}
         </List>
         <div>
-          <SavePropertyDialog
-            currentProperty={currentProperty}
-            updateProperty={updateProperty}
-            className="property-details__call-to-action"
-          />
+          <SavePropertyDialog className="property-details__call-to-action" />
           <Button
             outlined
             action="compareSales"
@@ -163,4 +186,8 @@ class PropertyDetails extends Component {
   }
 }
 
-export default PropertyDetails;
+const mapStateToProps = state => ({
+  currentProperty: state.currentProperty
+});
+
+export default connect(mapStateToProps)(PropertyDetails);

@@ -1,25 +1,20 @@
 // Container that holds the Property Details
-import React, { Component } from "react";
-
+import React from "react";
+import { connect } from "react-redux";
 import PropertyDetails from "./PropertyDetails";
 
-class LeftContainer extends Component {
-  render() {
-    const { currentlyOpen, currentProperty, updateProperty } = this.props;
+const LeftContainer = currentlyOpen => {
+  return (
+    <div>
+      <PropertyDetails />
+      {/* {currentlyOpen === "details" && <PropertyDetails />} */}
+      {/* {currentlyOpen === "tabs" && <div>TABS</div>} */}
+    </div>
+  );
+};
 
-    return (
-      <div>
-        {currentlyOpen === "details" && (
-          <PropertyDetails
-            closeDetails={this.props.closeDetails}
-            currentProperty={currentProperty}
-            updateProperty={updateProperty}
-          />
-        )}
-        {currentlyOpen === "tabs" && <div>TABS</div>}
-      </div>
-    );
-  }
-}
+const mapStateToProps = state => ({
+  currentlyOpen: state.currentlyOpen
+});
 
-export default LeftContainer;
+export default connect(mapStateToProps)(LeftContainer);
