@@ -40,7 +40,6 @@ class SavePropertyDialog extends Component {
   };
 
   saveProperty = evt => {
-    console.log(this.titleInput.value);
     this.props.updateProperty({
       title: this.titleInput.value,
       comments: this.commentsInput.value

@@ -14,6 +14,7 @@ import {
   ListItemSecondaryText
 } from "@rmwc/list";
 
+import { changeTab } from "../actions";
 import SavePropertyDialog from "./SavePropertyDialog";
 
 import "@material/list/dist/mdc.list.css";
@@ -27,13 +28,16 @@ import "./PropertyDetails.css";
 
 class PropertyDetails extends Component {
   render() {
+    console.log("props-details:");
+    console.log(this.props);
+    const closeDetails = () => event => {
+      this.props.changeTab("tabs");
+    };
     const { currentProperty } = this.props;
-
     return (
       <div className="property-details">
         <div className="property-details__close-button">
-          {/* <IconButton icon="close" label="Close" onClick={closeDetails} /> */}
-          <IconButton icon="close" label="Close" />
+          <IconButton icon="close" label="Close" onClick={closeDetails()} />
         </div>
         <img
           className="property-details__property-image"
@@ -185,6 +189,13 @@ class PropertyDetails extends Component {
   }
 }
 
+const mapDispatchToProps = dispatch => ({
+  changeTab: tab => dispatch(changeTab(tab))
+});
+
 const mapStateToProps = state => state.property;
 
-export default connect(mapStateToProps)(PropertyDetails);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PropertyDetails);

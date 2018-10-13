@@ -3,9 +3,10 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { Grid } from "rmwc";
 import { GridCell } from "rmwc";
+import { Button } from "@rmwc/button";
 import background from "./map_background.png";
 import LeftContainer from "../components/LeftContainer";
-import { Button } from "@rmwc/button";
+import { changeTab } from "../actions";
 
 import "./Home.css";
 
@@ -13,12 +14,14 @@ import "@material/button/dist/mdc.button.css";
 import "@material/layout-grid/dist/mdc.layout-grid.css";
 
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    const { showDetails } = this.props;
-  }
-
   render() {
+    console.log("props-home:");
+    console.log(this.props);
+
+    const openDetails = () => event => {
+      this.props.changeTab("details");
+    };
+
     const backgroundStyle = {
       backgroundImage: `url(${background})`,
       height: "800px",
@@ -32,7 +35,7 @@ class Home extends Component {
         <Grid>
           <GridCell span="3">
             <div>
-              <LeftContainer/>
+              <LeftContainer />
             </div>
           </GridCell>
           <GridCell span="9">
@@ -40,7 +43,7 @@ class Home extends Component {
               <Button
                 className="home__call-to-action"
                 raised
-                onClick={this.showDetails}
+                onClick={openDetails()}
               >
                 View property details
               </Button>
@@ -52,6 +55,11 @@ class Home extends Component {
   }
 }
 
-export default Home;
+const mapDispatchToProps = dispatch => ({
+  changeTab: tab => dispatch(changeTab(tab))
+});
 
-//TODO map showDetails action using mapDispatch
+export default connect(
+  null,
+  mapDispatchToProps
+)(Home);
