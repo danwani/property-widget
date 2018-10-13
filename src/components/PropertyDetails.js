@@ -28,8 +28,6 @@ import "./PropertyDetails.css";
 
 class PropertyDetails extends Component {
   render() {
-    console.log("props-details:");
-    console.log(this.props);
     const closeDetails = () => event => {
       this.props.changeTab("tabs");
     };

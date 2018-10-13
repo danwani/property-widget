@@ -4,8 +4,6 @@ import { connect } from "react-redux";
 import PropertyDetails from "./PropertyDetails";
 
 const LeftContainer = menu => {
-  console.log('props-left:')
-  console.log(menu);
   const { currentlyOpen } = menu;
   return (
     <div>

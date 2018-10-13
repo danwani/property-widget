@@ -43,7 +43,6 @@ class Register extends Component {
           this.setState({
             authState: "success"
           });
-          console.log(result);
         },
         error => {
           this.setState({

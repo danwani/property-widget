@@ -1,4 +1,4 @@
-import {SAVE_PROPERTY} from "../actions"
+import { SAVE_PROPERTY } from "../actions";
 
 const initialState = {
   currentProperty: {
@@ -19,11 +19,12 @@ const initialState = {
 const property = (state = initialState, action) => {
   switch (action.type) {
     case SAVE_PROPERTY:
-      state.currentProperty = {
-        ...state.currentProperty,
-        ...action.payload
+      return {
+        currentProperty: {
+          ...state.currentProperty,
+          ...action.payload
+        }
       };
-      return state;
     default:
       return state;
   }

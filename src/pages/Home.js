@@ -15,9 +15,6 @@ import "@material/layout-grid/dist/mdc.layout-grid.css";
 
 class Home extends Component {
   render() {
-    console.log("props-home:");
-    console.log(this.props);
-
     const openDetails = () => event => {
       this.props.changeTab("details");
     };
