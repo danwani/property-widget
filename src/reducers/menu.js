@@ -1,10 +1,12 @@
+import {CHANGE_TAB} from "../actions"
+
 const initialState = {
   currentlyOpen: "tabs"
 };
 
 const menu = (state = initialState, action) => {
   switch (action.type) {
-    case "CHANGE_TAB":
+    case CHANGE_TAB:
       state.currentlyOpen = action.tab;
       return state;
     default:

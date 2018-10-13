@@ -1,3 +1,5 @@
+import {SAVE_PROPERTY} from "../actions"
+
 const initialState = {
   currentProperty: {
     isInCrm: false,
@@ -16,7 +18,7 @@ const initialState = {
 
 const property = (state = initialState, action) => {
   switch (action.type) {
-    case "SAVE_PROPERTY":
+    case SAVE_PROPERTY:
       state.currentProperty = {
         ...this.state.currentProperty,
         ...action.payload
