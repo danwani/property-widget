@@ -1,6 +1,7 @@
 // View component included into the Property Page
 
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Grid } from "rmwc";
 import { GridCell } from "rmwc";
 import { TextField } from "@rmwc/textfield";
@@ -13,6 +14,7 @@ import {
   DialogButton
 } from "@rmwc/dialog";
 
+import { saveProperty } from "../actions";
 import "@material/button/dist/mdc.button.css";
 import "@material/dialog/dist/mdc.dialog.css";
 import "@material/button/dist/mdc.button.css";
@@ -39,8 +41,8 @@ class SavePropertyDialog extends Component {
     });
   };
 
-  saveProperty = evt => {
-    this.props.updateProperty({
+  saveProperty = () => event => {
+    this.props.saveProperty({
       title: this.titleInput.value,
       comments: this.commentsInput.value
     });
@@ -79,7 +81,7 @@ class SavePropertyDialog extends Component {
           <DialogActions>
             <DialogButton action="close">Cancel</DialogButton>
             <DialogButton
-              onClick={this.saveProperty}
+              onClick={this.saveProperty()}
               action="accept"
               isDefaultAction
             >
@@ -99,4 +101,14 @@ class SavePropertyDialog extends Component {
     );
   }
 }
-export default SavePropertyDialog;
+
+const mapDispatchToProps = dispatch => ({
+  saveProperty: payload => dispatch(saveProperty(payload))
+});
+
+const mapStateToProps = state => state.property;
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SavePropertyDialog);

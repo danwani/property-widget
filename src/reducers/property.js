@@ -20,7 +20,7 @@ const property = (state = initialState, action) => {
   switch (action.type) {
     case SAVE_PROPERTY:
       state.currentProperty = {
-        ...this.state.currentProperty,
+        ...state.currentProperty,
         ...action.payload
       };
       return state;

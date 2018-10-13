@@ -1,7 +1,7 @@
-import {CHANGE_TAB} from "../actions"
+import { CHANGE_TAB } from "../actions";
 
 const initialState = {
-  currentlyOpen: "tabs"
+  currentlyOpen: "details"
 };
 
 const menu = (state = initialState, action) => {
